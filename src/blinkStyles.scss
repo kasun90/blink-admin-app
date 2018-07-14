@@ -1,0 +1,47 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$mat-blink: (
+  50 : #feecec,
+  100 : #fccece,
+  200 : #faaeae,
+  300 : #f88e8e,
+  400 : #f77575,
+  500 : #f55d5d,
+  600 : #f45555,
+  700 : #f24b4b,
+  800 : #f04141,
+  900 : #ee3030,
+  A100 : #f77575,
+  A200 : #f45555,
+  A400 : #f24b4b,
+  A700 : #f04141,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+
+$blink-app-primary: mat-palette($mat-blink);
+$blink-app-accent:  mat-palette($mat-blink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$blink-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$blink-app-theme: mat-light-theme($blink-app-primary, $blink-app-accent, $blink-app-warn);
+
+@include angular-material-theme($blink-app-theme);
