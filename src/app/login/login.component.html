@@ -1,0 +1,13 @@
+<div class="login-container">
+  
+  <mat-form-field>
+    <input matInput [(ngModel)]="username" placeholder="Username">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="password" placeholder="Password" type="password">
+  </mat-form-field>
+  <button mat-button color="primary" (click)="sendLogin()">Login</button>
+</div>
+<div class="logo-container">
+  <img class="image" src="assets/images/logo/blinkr.svg">
+</div>
