@@ -42,6 +42,6 @@ $blink-app-accent:  mat-palette($mat-blink, A200, A100, A400);
 $blink-app-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$blink-app-theme: mat-light-theme($blink-app-primary, $blink-app-accent, $blink-app-warn);
+$blink-app-theme: mat-dark-theme($blink-app-primary, $blink-app-accent, $blink-app-warn);
 
 @include angular-material-theme($blink-app-theme);
