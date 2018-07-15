@@ -5,3 +5,23 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 16px;
   }
+
+.blink {
+    color: #f55d5d
+}
+
+.blink-border {
+    border-color: #f55d5d;
+}
+
+.blink-outline {
+    outline-color: #f55d5d;
+}
+
+.blink-background {
+    background-color: #f55d5d;
+}
+
+body {
+  margin: 0px;
+}

@@ -15,13 +15,13 @@ const httpOptions = {
 
 export class MessageService {
 
-  private adminURL = 'http://localhost:5000/client';
+  private adminURL = 'http://localhost:3000/admin';
 
   constructor(private httpClient: HttpClient) { }
 
   send(message: Message): Observable<Message> {
     const params = new URLSearchParams();
-    params.append('target', 'CLIENT');
+    params.append('target', 'ADMIN');
     params.append('message', message.toJSON());
     return this.httpClient.post(this.adminURL, params.toString(), httpOptions)
     .pipe(catchError(this.handleError()), map((result, number): Message => {

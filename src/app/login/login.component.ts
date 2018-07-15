@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
 import { Message } from '../message';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-login',
@@ -13,16 +14,19 @@ export class LoginComponent implements OnInit {
 
   private username: string;
   private password: string;
+  private loginMessage = '';
 
   ngOnInit() {
   }
 
 
   sendLogin() {
-    const loginMessage = new Message('com.blink.shared.client.messaging.UserMessage');
-    loginMessage.set('message', 'hello');
+    this.loginMessage = '';
+    const loginMessage = new Message('com.blink.shared.admin.portal.LoginMessage');
+    loginMessage.set('username', this.username);
+    loginMessage.set('password', CryptoJS.SHA256(this.password).toString());
     this.messageService.send(loginMessage).subscribe(result => {
-      console.log(result.isOK());
+      this.loginMessage = result.get('message');
     });
   }
 

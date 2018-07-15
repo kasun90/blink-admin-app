@@ -9,16 +9,19 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule,
    MatCheckboxModule,
    MatFormFieldModule,
-   MatInputModule
+   MatInputModule,
+   MatSidenavModule
   } from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { StageComponent } from './stage/stage.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    StageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { AppRoutingModule } from './/app-routing.module';
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSidenavModule,
     AppRoutingModule
   ],
   providers: [],

@@ -6,7 +6,8 @@
   <mat-form-field>
     <input matInput [(ngModel)]="password" placeholder="Password" type="password">
   </mat-form-field>
-  <button mat-button color="primary" (click)="sendLogin()">Login</button>
+  <button mat-flat-button color="primary" (click)="sendLogin()">Login</button>
+  <label class="login-message blink">{{loginMessage}}</label>
 </div>
 <div class="logo-container">
   <img class="image" src="assets/images/logo/blinkr.svg">
