@@ -1,5 +1,16 @@
 <mat-nav-list>
-    <a mat-list-item href="/login">Dashboard</a>
-    <a mat-list-item href="/login">Albums</a>
-    <a mat-list-item href="/login">Diagnostics</a>
+    <a mat-list-item [routerLink]="[{outlets: {'stage_desc': ['dashboard']}}]">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        <h6>Dashboard</h6>
+    </a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['albums']">
+        <mat-icon matListIcon>photo_album</mat-icon>
+        <h6>Albums</h6>
+    </a>
+    <mat-divider></mat-divider>
+    <a mat-list-item [routerLink]="['diagnostics']">
+        <mat-icon matListIcon>check_circle</mat-icon>
+        <h6>Diagnostics</h6>
+    </a>
 </mat-nav-list>

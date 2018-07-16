@@ -14,6 +14,7 @@ import {MatButtonModule,
    MatToolbarModule,
    MatDividerModule,
    MatListModule,
+   MatIconModule,
    MatProgressSpinnerModule
   } from '@angular/material';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +22,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { StageComponent } from './stage/stage.component';
 import { ProfileSideComponent } from './profile-side/profile-side.component';
 import { SideRoutesComponent } from './side-routes/side-routes.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { SideRoutesComponent } from './side-routes/side-routes.component';
     LoginComponent,
     StageComponent,
     ProfileSideComponent,
-    SideRoutesComponent
+    SideRoutesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { SideRoutesComponent } from './side-routes/side-routes.component';
     MatDividerModule,
     MatListModule,
     MatProgressSpinnerModule,
+    MatIconModule,
     AppRoutingModule
   ],
   providers: [],
