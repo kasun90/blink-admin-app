@@ -10,18 +10,21 @@ import {MatButtonModule,
    MatCheckboxModule,
    MatFormFieldModule,
    MatInputModule,
-   MatSidenavModule
+   MatSidenavModule,
+   MatToolbarModule
   } from '@angular/material';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { StageComponent } from './stage/stage.component';
+import { ProfileSideComponent } from './profile-side/profile-side.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    StageComponent
+    StageComponent,
+    ProfileSideComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { StageComponent } from './stage/stage.component';
     MatFormFieldModule,
     MatInputModule,
     MatSidenavModule,
+    MatToolbarModule,
     AppRoutingModule
   ],
   providers: [],
