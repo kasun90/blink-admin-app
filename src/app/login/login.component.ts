@@ -15,8 +15,10 @@ export class LoginComponent implements OnInit {
   private username: string;
   private password: string;
   private loginMessage = '';
+  private isSending: boolean;
 
   ngOnInit() {
+    this.isSending = true;
   }
 
 
@@ -25,7 +27,9 @@ export class LoginComponent implements OnInit {
     const loginMessage = new Message('com.blink.shared.admin.portal.LoginMessage');
     loginMessage.set('username', this.username);
     loginMessage.set('password', CryptoJS.SHA256(this.password).toString());
+    this.isSending = true;
     this.messageService.send(loginMessage).subscribe(result => {
+      this.isSending = false;
       this.loginMessage = result.get('message');
     });
   }

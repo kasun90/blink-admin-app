@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileSideComponent implements OnInit {
 
+  private profilePic: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.profilePic = 'assets/images/profile/default.png';
+
   }
 
 }

@@ -1,5 +1,6 @@
 .login-container {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -24,5 +25,9 @@
 
 .login-message {
     margin-top: 1em;
+}
+
+.spinner {
+    position: absolute;
 }
 
