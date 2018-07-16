@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   private isSending: boolean;
 
   ngOnInit() {
-    this.isSending = true;
+    this.isSending = false;
   }
 
 
