@@ -1,15 +1,15 @@
 <mat-nav-list>
-    <a mat-list-item [routerLink]="[{outlets: {'stage_desc': ['dashboard']}}]" routerLinkActive="active">
+    <a mat-list-item [routerLink]="['dashboard']" routerLinkActive="active">
         <mat-icon matListIcon>dashboard</mat-icon>
         <p matLine>Dashboard</p>
     </a>
     <mat-divider></mat-divider>
-    <a mat-list-item [routerLink]="[{outlets: {'stage_desc': ['albums']}}]" routerLinkActive="active">
+    <a mat-list-item [routerLink]="['albums']" routerLinkActive="active">
         <mat-icon matListIcon>photo_album</mat-icon>
         <p matLine>Albums</p>
     </a>
     <mat-divider></mat-divider>
-    <a mat-list-item [routerLink]="[{outlets: {'stage_desc': ['diagnostics']}}]" routerLinkActive="active">
+    <a mat-list-item [routerLink]="['diagnostics']" routerLinkActive="active">
         <mat-icon matListIcon>check_circle</mat-icon>
         <p matLine>Diagnostics</p>
     </a>
