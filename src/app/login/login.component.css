@@ -8,6 +8,14 @@
     height: 90vh;
 }
 
+.login-sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .image {
     display: block;
     width: auto;
@@ -25,7 +33,3 @@
 .login-message {
     margin-top: 1em;
 }
-
-.spinner {
-}
-

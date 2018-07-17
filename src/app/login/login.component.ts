@@ -28,11 +28,20 @@ export class LoginComponent implements OnInit {
     const loginMessage = new Message('com.blink.shared.admin.portal.LoginMessage');
     loginMessage.set('username', this.username);
     loginMessage.set('password', CryptoJS.SHA256(this.password).toString());
+    this.messageService.setTargetUser(this.username);
     this.isSending = true;
     this.messageService.send(loginMessage).subscribe(result => {
       this.isSending = false;
-      this.loginMessage = result.get('message');
-      this.router.navigate(['/stage']);
+      if (result.isOK()) {
+        if (result.get('code') === 0) {
+          this.messageService.setSessionID(result.get('sessionID'));
+          this.router.navigate(['/stage']);
+        } else {
+          this.loginMessage = result.get('message');
+        }
+      } else {
+        this.loginMessage = 'Connection Error';
+      }
     });
   }
 
