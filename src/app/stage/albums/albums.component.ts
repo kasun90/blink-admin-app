@@ -1,3 +1,4 @@
+import { ToolBarButton } from './../tool-bar-button';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumsComponent implements OnInit {
 
-  constructor() { }
+  private albumsToolButtons: ToolBarButton[] = [];
+
+  constructor() {
+    this.onNewAlbum = this.onNewAlbum.bind(this);
+  }
 
   ngOnInit() {
+    this.albumsToolButtons.push(new ToolBarButton('New Album', this.onNewAlbum));
+  }
+
+  onNewAlbum() {
+    console.log('on new album');
   }
 
 }

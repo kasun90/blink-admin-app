@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileSideComponent } from './profile-side/profile-side.component';
 import { MyMaterialModule } from '../my-material.module';
 import { StageRoutingModule } from './stage-routing.module';
+import { StageToolbarComponent } from './stage-toolbar/stage-toolbar.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { StageRoutingModule } from './stage-routing.module';
     DashboardComponent,
     DiagnosticsComponent,
     ProfileSideComponent,
-    SideRoutesComponent
+    SideRoutesComponent,
+    StageToolbarComponent,
+    MessagesComponent
   ]
 })
 export class StageModule { }

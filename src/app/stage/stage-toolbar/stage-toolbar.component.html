@@ -1,0 +1,6 @@
+<mat-toolbar color="primary">
+  <span class="fill-space"></span>
+  <div class="button-container" *ngFor="let button of buttons">
+    <button mat-button (click)="button.onClick()">{{button.name}}</button>
+  </div>
+</mat-toolbar>
