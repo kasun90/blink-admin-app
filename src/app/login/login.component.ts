@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
 import { Message } from '../message';
 import * as CryptoJS from 'crypto-js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import * as CryptoJS from 'crypto-js';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private router: Router) { }
 
   private username: string;
   private password: string;
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.messageService.send(loginMessage).subscribe(result => {
       this.isSending = false;
       this.loginMessage = result.get('message');
+      this.router.navigate(['/stage']);
     });
   }
 
