@@ -23,6 +23,8 @@ import { StageComponent } from './stage/stage.component';
 import { ProfileSideComponent } from './profile-side/profile-side.component';
 import { SideRoutesComponent } from './side-routes/side-routes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AlbumsComponent } from './albums/albums.component';
+import { DiagnosticsComponent } from './diagnostics/diagnostics.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     StageComponent,
     ProfileSideComponent,
     SideRoutesComponent,
-    DashboardComponent
+    DashboardComponent,
+    AlbumsComponent,
+    DiagnosticsComponent
   ],
   imports: [
     BrowserModule,

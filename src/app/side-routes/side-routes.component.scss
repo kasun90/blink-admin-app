@@ -1,0 +1,9 @@
+@import '../../blinkStyles.scss';
+
+h6 {
+    margin-left: 0.5em;
+}
+
+.active {
+    color: mat-color($blink-app-primary) !important;
+}
