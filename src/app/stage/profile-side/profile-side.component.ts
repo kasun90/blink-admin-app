@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../message.service';
 import { Message } from '../../message';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-side',
@@ -13,7 +14,7 @@ export class ProfileSideComponent implements OnInit {
   private name: string;
   private type: string;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private router: Router) { }
 
   ngOnInit() {
     this.profilePic = 'assets/images/profile/default.png';
@@ -31,7 +32,8 @@ export class ProfileSideComponent implements OnInit {
   }
 
   onLogOut() {
-    console.log('onloigut');
+    this.messageService.removeSession();
+    this.router.navigate(['/login']);
   }
 
 }

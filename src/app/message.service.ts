@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of} from 'rxjs';
-import { catchError, map} from 'rxjs/operators';
+import { catchError, map, timeout} from 'rxjs/operators';
 import { Message } from './message';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
@@ -21,8 +21,13 @@ export class MessageService {
 
   constructor(private httpClient: HttpClient) {
     const _recoverSession = localStorage.getItem('sessionID');
-    if (_recoverSession !== undefined) {
+    if (_recoverSession !== undefined && _recoverSession !== 'null' && _recoverSession !== null) {
       this.setSessionID(localStorage.getItem('sessionID'));
+    }
+
+    const _recoverTargetUser = localStorage.getItem('targetUser');
+    if (_recoverTargetUser !== undefined && _recoverTargetUser !== 'null' && _recoverTargetUser !== null) {
+      this.setTargetUser(_recoverTargetUser);
     }
   }
 
@@ -32,7 +37,7 @@ export class MessageService {
     params.append('targetUser', this.targetUser);
     params.append('message', message.toJSON());
     return this.httpClient.post(this.adminURL, params.toString(), httpOptions)
-    .pipe(catchError(this.handleError()), map((result, number): Message => {
+    .pipe(catchError(this.handleError()), timeout(10000), map((result, number): Message => {
       if (result instanceof Message) {
         return result;
       }
@@ -60,6 +65,7 @@ export class MessageService {
 
   setTargetUser(targetUser: string) {
     this.targetUser = targetUser;
+    localStorage.setItem('targetUser', targetUser);
   }
 
   private handleError () {
