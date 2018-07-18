@@ -17,8 +17,14 @@ export class MessageService {
 
   private adminURL = 'http://localhost:3000/admin';
   private targetUser: string;
+  private sessionID: string;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    const _recoverSession = localStorage.getItem('sessionID');
+    if (_recoverSession !== undefined) {
+      this.setSessionID(localStorage.getItem('sessionID'));
+    }
+  }
 
   send(message: Message): Observable<Message> {
     const params = new URLSearchParams();
@@ -38,7 +44,18 @@ export class MessageService {
   }
 
   setSessionID(sessionID: string) {
-    httpOptions.headers = httpOptions.headers.append('X-App-Session', sessionID);
+    this.sessionID = sessionID;
+    localStorage.setItem('sessionID', sessionID);
+    httpOptions.headers = httpOptions.headers.set('X-App-Session', sessionID);
+  }
+
+  removeSession() {
+    this.sessionID = undefined;
+    localStorage.removeItem('sessionID');
+  }
+
+  isLoggedIn(): boolean {
+    return this.sessionID !== undefined;
   }
 
   setTargetUser(targetUser: string) {

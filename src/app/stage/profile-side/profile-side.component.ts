@@ -30,4 +30,8 @@ export class ProfileSideComponent implements OnInit {
     });
   }
 
+  onLogOut() {
+    console.log('onloigut');
+  }
+
 }
