@@ -1,4 +1,4 @@
-import { ToolBarButton } from './../tool-bar-button';
+import { ToolBarButton } from '../tool-bar-button';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

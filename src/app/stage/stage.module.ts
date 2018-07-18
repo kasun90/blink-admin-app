@@ -10,6 +10,7 @@ import { MyMaterialModule } from '../my-material.module';
 import { StageRoutingModule } from './stage-routing.module';
 import { StageToolbarComponent } from './stage-toolbar/stage-toolbar.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AdminUserTypePipe } from './tools/admin-user-type.pipe';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { MessagesComponent } from './messages/messages.component';
     ProfileSideComponent,
     SideRoutesComponent,
     StageToolbarComponent,
-    MessagesComponent
+    MessagesComponent,
+    AdminUserTypePipe
   ]
 })
 export class StageModule { }
