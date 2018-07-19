@@ -27,6 +27,10 @@ export class ProfileSideComponent implements OnInit {
       if (result.isOK()) {
         this.name = result.get('name');
         this.type = result.get('type');
+        const _profilePic = result.get('profilePicture');
+        if (_profilePic !== undefined) {
+          this.profilePic = _profilePic;
+        }
       }
     });
   }
