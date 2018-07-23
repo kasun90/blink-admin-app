@@ -8,7 +8,10 @@ import {MatButtonModule,
   MatDividerModule,
   MatListModule,
   MatIconModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatRippleModule
  } from '@angular/material';
 
 @NgModule({
@@ -22,7 +25,10 @@ import {MatButtonModule,
     MatDividerModule,
     MatListModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatRippleModule
   ],
   exports: [
     MatButtonModule,
@@ -34,7 +40,10 @@ import {MatButtonModule,
     MatDividerModule,
     MatListModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatRippleModule
   ]
 })
 export class MyMaterialModule { }

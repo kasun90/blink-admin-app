@@ -15,7 +15,7 @@ const httpOptions = {
 
 export class MessageService {
 
-  private adminURL = 'http://localhost:3000/admin';
+  private adminURL = 'http://localhost:4000/admin';
   private targetUser: string;
   private sessionID: string;
 

@@ -1,0 +1,13 @@
+@import '../../../blinkStyles.scss';
+
+.table-container {
+    margin: 1em;
+}
+
+table {
+    width: 100%;
+}
+
+.table-row:hover {
+    background-color: mat-color($blink-app-primary) !important;
+}

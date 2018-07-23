@@ -11,6 +11,7 @@ import { StageRoutingModule } from './stage-routing.module';
 import { StageToolbarComponent } from './stage-toolbar/stage-toolbar.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AdminUserTypePipe } from './tools/admin-user-type.pipe';
+import { MessageModalComponent } from '../messages/message-modal/message-modal.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { AdminUserTypePipe } from './tools/admin-user-type.pipe';
     SideRoutesComponent,
     StageToolbarComponent,
     MessagesComponent,
-    AdminUserTypePipe
+    AdminUserTypePipe,
+    MessageModalComponent
   ]
 })
 export class StageModule { }

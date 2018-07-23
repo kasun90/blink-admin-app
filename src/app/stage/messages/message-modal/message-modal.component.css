@@ -1,0 +1,4 @@
+.message-modal-container {
+    background: rgb(0, 0, 0, 0.6);
+    z-index: 1;
+}
