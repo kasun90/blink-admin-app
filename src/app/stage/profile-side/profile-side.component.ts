@@ -25,6 +25,11 @@ export class ProfileSideComponent implements OnInit {
     const request = new Message('com.blink.shared.admin.portal.UserDetailsRequestMessage');
     this.messageService.send(request).subscribe(result => {
       if (result.isOK()) {
+        if (result.getType() === 'com.blink.shared.system.InvalidRequest') {
+          this.onLogOut();
+          return;
+        }
+
         this.name = result.get('name');
         this.type = result.get('type');
         const _profilePic = result.get('profilePicture');
