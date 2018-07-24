@@ -12,6 +12,7 @@ import { StageToolbarComponent } from './stage-toolbar/stage-toolbar.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AdminUserTypePipe } from './tools/admin-user-type.pipe';
 import { MessageModalComponent } from './messages/message-modal/message-modal.component';
+import { NewAlbumComponent } from './albums/new-album/new-album.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { MessageModalComponent } from './messages/message-modal/message-modal.co
     StageToolbarComponent,
     MessagesComponent,
     AdminUserTypePipe,
-    MessageModalComponent
+    MessageModalComponent,
+    NewAlbumComponent
   ]
 })
 export class StageModule { }
