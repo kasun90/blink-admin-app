@@ -1,0 +1,59 @@
+@import '../../../../blinkStyles.scss';
+
+.message-modal-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 3;
+}
+
+.message-modal-container {
+    box-sizing: border-box;
+    background-color: mat-color($blink-app-primary) !important;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-main-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-info {
+    padding-left: 1em;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.modal-info-date {
+    width: 50%;
+    display: flex;
+    padding-right: 1em;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.modal-message {
+    text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.major {
+    font-size: 2em;
+    margin-top: 0.2em;
+}
+
+.minor {
+    margin-bottom: 0.2em;
+}

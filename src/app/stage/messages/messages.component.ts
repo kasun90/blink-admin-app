@@ -16,10 +16,13 @@ export class MessagesComponent implements OnInit {
   private total = 0;
   private pageSizeOptions = [5, 10, 25, 100];
   private pageSize = 5;
+  private selectedMessage: UserMessage;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) {
+    this.onModalClose = this.onModalClose.bind(this);
+  }
 
   set pageEvent(event: PageEvent) {
     if (this.pageSize !== event.pageSize) {
@@ -53,7 +56,11 @@ export class MessagesComponent implements OnInit {
   }
 
   selectRow(row: MatRow) {
-    console.log(row);
+    this.selectedMessage = row as UserMessage;
+  }
+
+  onModalClose() {
+    this.selectedMessage = undefined;
   }
 
 }

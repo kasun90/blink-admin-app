@@ -1,5 +1,18 @@
-<div class="message-modal-container">
-  <div>
-    
+<div *ngIf="isOpen" class="message-modal-background" (click)="close()">
+  <div [@flyInOut]="in" class="message-modal-container">
+    <div class="modal-main-info">
+      <div class="modal-info">
+        <label class="major">{{message.name}}</label>
+        <label class="minor">{{message.phone}}</label>
+        <label class="minor">{{message.email}}</label>
+      </div>
+      <div class="modal-info-date">
+        <label>{{message.timestamp | date:'medium'}}</label>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="modal-message">
+      {{message.message}}
+    </div>
   </div>
 </div>

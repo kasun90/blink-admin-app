@@ -22,7 +22,7 @@
     
       <ng-container matColumnDef="timestamp">
         <th mat-header-cell *matHeaderCellDef> Time </th>
-        <td mat-cell *matCellDef="let element"> {{element.timestamp}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.timestamp | date:'medium'}} </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="columns"></tr>
@@ -33,4 +33,5 @@
               [pageSizeOptions]="pageSizeOptions"
               (page)="pageEvent = $event">
     </mat-paginator>
+    <app-message-modal [message]="selectedMessage" [isOpen]="selectedMessage !== undefined" [onClose]="onModalClose"></app-message-modal>
 </div>
