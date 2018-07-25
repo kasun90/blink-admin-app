@@ -16,11 +16,13 @@ export class AlbumsComponent implements OnInit {
   private total = 0;
   private pageSizeOptions = [5, 10, 25, 100];
   private pageSize = 5;
+  private openNewAlbum: boolean;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor() {
     this.onNewAlbum = this.onNewAlbum.bind(this);
+    this.onNewAlbumFinished = this.onNewAlbumFinished.bind(this);
   }
 
   ngOnInit() {
@@ -32,7 +34,11 @@ export class AlbumsComponent implements OnInit {
   }
 
   onNewAlbum() {
-    console.log('on new album');
+    this.openNewAlbum = true;
+  }
+
+  onNewAlbumFinished() {
+    this.openNewAlbum = false;
   }
 
 }

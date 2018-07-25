@@ -34,4 +34,5 @@
               [pageSizeOptions]="pageSizeOptions"
               (page)="pageEvent = $event">
     </mat-paginator>
+    <app-new-album [isOpen]="openNewAlbum" [onClose]="onNewAlbumFinished"></app-new-album>
 </div>

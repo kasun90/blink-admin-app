@@ -13,10 +13,13 @@ import { MessagesComponent } from './messages/messages.component';
 import { AdminUserTypePipe } from './tools/admin-user-type.pipe';
 import { MessageModalComponent } from './messages/message-modal/message-modal.component';
 import { NewAlbumComponent } from './albums/new-album/new-album.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MyMaterialModule,
     StageRoutingModule
   ],
