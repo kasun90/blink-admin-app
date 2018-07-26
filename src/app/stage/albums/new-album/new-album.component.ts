@@ -1,8 +1,9 @@
 import { map } from 'rxjs/operators';
 import { Message } from './../../../message';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MessageService } from '../../../message.service';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { MatStepper } from '@angular/material';
 
 @Component({
   selector: 'app-new-album',
@@ -15,14 +16,16 @@ export class NewAlbumComponent implements OnInit {
   @Input() onClose?: Function;
 
   private infoGroup: FormGroup;
+  private error: string;
 
   constructor(private messageService: MessageService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.error = undefined;
     this.infoGroup = this.formBuilder.group({
-      emptyCtrl : ['', Validators.required],
-      emptyCtrl2 : ['', Validators.required],
-      keyCtrl: ['', Validators.required, this.checkForKey.bind(this)]
+      title : ['', Validators.required],
+      description : ['', Validators.required],
+      key: ['', Validators.required, this.checkForKey.bind(this)]
     });
   }
 
@@ -54,6 +57,22 @@ export class NewAlbumComponent implements OnInit {
   closeModal() {
     this.isOpen = false;
     this.onClose();
+  }
+
+  onCreateAlbumNext(stepper: MatStepper) {
+    this.error = undefined;
+    const createAlbumMsg = new Message('com.blink.shared.admin.album.CreateAlbumRequestMessage');
+    createAlbumMsg.set('title', this.infoGroup.get('title').value);
+    createAlbumMsg.set('description', this.infoGroup.get('description').value);
+    createAlbumMsg.set('key', this.infoGroup.get('key').value);
+
+    this.messageService.send(createAlbumMsg).subscribe(result => {
+      if (result.isOK()) {
+        stepper.next();
+      } else {
+        this.error = 'Network Error';
+      }
+    });
   }
 
 }

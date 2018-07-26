@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MyMaterialModule } from './my-material.module';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 
 @NgModule({
@@ -29,4 +30,8 @@ import { MyMaterialModule } from './my-material.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(overlayContainer: OverlayContainer) {
+    overlayContainer.getContainerElement().classList.add('blink-theme');
+  }
+}

@@ -5,22 +5,23 @@
         <form [formGroup]="infoGroup">
           <ng-template matStepLabel>Check Availability</ng-template>
           <div class="form">
-          <mat-form-field>
-            <input matInput placeholder="Title" formControlName="emptyCtrl" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Key" formControlName="keyCtrl" required>
-          </mat-form-field>
-          <mat-form-field>
-              <textarea matInput placeholder="Description" formControlName="emptyCtrl2" required></textarea>
-          </mat-form-field>
-          
-          <button mat-button matStepperNext>Next</button>
+            <mat-form-field>
+              <input matInput placeholder="Title" formControlName="title" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Key" formControlName="key" required>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+            </mat-form-field>
+            
+            <button mat-button matStepperNext (click)="onCreateAlbumNext(stepper)">Next</button>
+            <label *ngIf="error">{{error}}</label>
           </div>
         </form>
       </mat-step>
       <mat-step [completed]="true">
-        <ng-template matStepLabel>Fill out your address</ng-template>
+        <ng-template matStepLabel>Add Photos</ng-template>
         <mat-form-field>
           <input matInput placeholder="Address" required>
         </mat-form-field>

@@ -14,6 +14,7 @@ import { AdminUserTypePipe } from './tools/admin-user-type.pipe';
 import { MessageModalComponent } from './messages/message-modal/message-modal.component';
 import { NewAlbumComponent } from './albums/new-album/new-album.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @NgModule({
   imports: [
@@ -37,4 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewAlbumComponent
   ]
 })
-export class StageModule { }
+export class StageModule {
+  constructor(overlayContainer: OverlayContainer) {
+    overlayContainer.getContainerElement().classList.add('blink-theme');
+  }
+}

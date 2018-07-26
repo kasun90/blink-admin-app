@@ -1,17 +1,20 @@
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { MessageService } from './../../message.service';
 import { PageEvent, MatPaginator } from '@angular/material';
 import { ToolBarButton } from '../tool-bar-button';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Album } from './album';
+import { Message } from '../../message';
 
 @Component({
   selector: 'app-albums',
   templateUrl: './albums.component.html',
-  styleUrls: ['./albums.component.css']
+  styleUrls: ['./albums.component.scss']
 })
 export class AlbumsComponent implements OnInit {
 
   private albumsToolButtons: ToolBarButton[] = [];
-  private displayedColumns: string[] = ['title', 'key', 'photos', 'cover', 'timestamp'];
+  private displayedColumns: string[] = ['title', 'key', 'description', 'photos', 'cover', 'timestamp', 'actions'];
   private dataSource: Album[] = [];
   private total = 0;
   private pageSizeOptions = [5, 10, 25, 100];
@@ -20,17 +23,42 @@ export class AlbumsComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() {
+  constructor(private messageService: MessageService,
+  private overlayContainer: OverlayContainer) {
+    this.overlayContainer.getContainerElement().classList.add('blink-theme');
     this.onNewAlbum = this.onNewAlbum.bind(this);
     this.onNewAlbumFinished = this.onNewAlbumFinished.bind(this);
   }
 
   ngOnInit() {
     this.albumsToolButtons.push(new ToolBarButton('New Album', this.onNewAlbum));
+    this.requestData(0, true, this.pageSize);
   }
 
   set pageEvent(event: PageEvent) {
+    if (this.pageSize !== event.pageSize) {
+      this.pageSize = event.pageSize;
+      this.paginator.pageIndex = 0;
+      this.requestData(0, true, this.pageSize);
+    } else if (event.previousPageIndex < event.pageIndex) {
+      this.requestData(this.dataSource[this.dataSource.length - 1].timestamp, true, this.pageSize);
+    } else {
+      this.requestData(this.dataSource[0].timestamp, false, this.pageSize);
+    }
+  }
 
+  requestData(timestamp: number, less: boolean, limit: number) {
+    const req: Message = new Message('com.blink.shared.admin.album.AlbumsRequestMessage');
+    req.set('timestamp', timestamp);
+    req.set('less', less);
+    req.set('limit', limit);
+
+    this.messageService.send(req).subscribe(result => {
+      if (result.isOK()) {
+        this.dataSource = result.get('albums') as Array<Album>;
+        this.total = result.get('total');
+      }
+    });
   }
 
   onNewAlbum() {
@@ -39,6 +67,8 @@ export class AlbumsComponent implements OnInit {
 
   onNewAlbumFinished() {
     this.openNewAlbum = false;
+    this.paginator.pageIndex = 0;
+    this.requestData(0, true, this.pageSize);
   }
 
 }
