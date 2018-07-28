@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { Message } from './../../../message';
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy} from '@angular/core';
 import { MessageService } from '../../../message.service';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { MatStepper } from '@angular/material';
@@ -14,9 +14,15 @@ export class NewAlbumComponent implements OnInit {
 
   @Input() isOpen: boolean;
   @Input() onClose?: Function;
+  @Input() albumKey?: string;
 
   private infoGroup: FormGroup;
   private error: string;
+  private photos: FileList;
+  private cover: File;
+  private uploaded: number;
+  private photosUploadComplete = false;
+  private coverUploadComplete = false;
 
   constructor(private messageService: MessageService, private formBuilder: FormBuilder) { }
 
@@ -29,23 +35,6 @@ export class NewAlbumComponent implements OnInit {
     });
   }
 
-  onFilesAdded(event) {
-    const files = event.target.files as FileList;
-    const file = files[0];
-    const reader = new FileReader();
-    reader.onloadend = (fileEvent) => {
-      const readResult = reader.result as string;
-      console.log(readResult.length);
-      const uploadMsg = new Message('com.blink.shared.admin.album.AlbumPhotoUploadMessage');
-      uploadMsg.set('key', 'test');
-      uploadMsg.set('fileContent', readResult);
-      this.messageService.send(uploadMsg).subscribe(response => {
-        console.log(response.getType());
-      });
-    };
-    reader.readAsDataURL(file);
-  }
-
   checkForKey(control: AbstractControl) {
     const keyMsg = new Message('com.blink.shared.admin.album.AlbumKeyCheckRequestMessage');
     keyMsg.set('key', control.value);
@@ -55,12 +44,16 @@ export class NewAlbumComponent implements OnInit {
   }
 
   closeModal() {
+    this.photos = undefined;
+    this.infoGroup.reset();
+    this.cover = undefined;
     this.isOpen = false;
     this.onClose();
   }
 
   onCreateAlbumNext(stepper: MatStepper) {
     this.error = undefined;
+    this.albumKey = this.infoGroup.get('key').value;
     const createAlbumMsg = new Message('com.blink.shared.admin.album.CreateAlbumRequestMessage');
     createAlbumMsg.set('title', this.infoGroup.get('title').value);
     createAlbumMsg.set('description', this.infoGroup.get('description').value);
@@ -75,4 +68,22 @@ export class NewAlbumComponent implements OnInit {
     });
   }
 
+  onPhotosQueued(event) {
+    this.uploaded = 0;
+    this.photos = event.target.files as FileList;
+  }
+
+  onCoverQueued(event) {
+    const files = event.target.files as FileList;
+    this.cover = files[0];
+  }
+
+  onPhotoUploadComplete(file: File) {
+    this.uploaded++;
+    this.photosUploadComplete = this.photos.length === this.uploaded;
+  }
+
+  onCoverUploadComplete(file: File) {
+    this.coverUploadComplete = true;
+  }
 }

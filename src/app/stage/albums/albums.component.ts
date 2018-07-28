@@ -38,8 +38,7 @@ export class AlbumsComponent implements OnInit {
   set pageEvent(event: PageEvent) {
     if (this.pageSize !== event.pageSize) {
       this.pageSize = event.pageSize;
-      this.paginator.pageIndex = 0;
-      this.requestData(0, true, this.pageSize);
+      this.resetTable();
     } else if (event.previousPageIndex < event.pageIndex) {
       this.requestData(this.dataSource[this.dataSource.length - 1].timestamp, true, this.pageSize);
     } else {
@@ -67,8 +66,23 @@ export class AlbumsComponent implements OnInit {
 
   onNewAlbumFinished() {
     this.openNewAlbum = false;
+    this.resetTable();
+  }
+
+  private resetTable() {
     this.paginator.pageIndex = 0;
     this.requestData(0, true, this.pageSize);
+  }
+
+  deleteAlbum(key: string) {
+    const req: Message = new Message('com.blink.shared.admin.album.AlbumDeleteMessage');
+    req.set('key', key);
+
+    this.messageService.send(req).subscribe(result => {
+      if (result.isOK()) {
+        this.resetTable();
+      }
+    });
   }
 
 }

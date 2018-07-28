@@ -37,13 +37,13 @@
           <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
           <mat-menu #menu="matMenu" [overlapTrigger]="false">
             <button class="menu-button" mat-menu-item>Add Photos</button>
-            <button class="menu-button" mat-menu-item>Delete</button>
+            <button class="menu-button" mat-menu-item (click)="deleteAlbum(element.key)">Delete</button>
           </mat-menu>
         </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr class="table-row" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)"></tr>
+      <tr class="table-row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <mat-paginator #paginator [length]="total"
               [pageSize]="pageSize"

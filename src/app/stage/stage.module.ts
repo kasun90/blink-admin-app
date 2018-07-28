@@ -15,6 +15,7 @@ import { MessageModalComponent } from './messages/message-modal/message-modal.co
 import { NewAlbumComponent } from './albums/new-album/new-album.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { PhotoUploadComponent } from './albums/photo-upload/photo-upload.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { OverlayContainer } from '@angular/cdk/overlay';
     MessagesComponent,
     AdminUserTypePipe,
     MessageModalComponent,
-    NewAlbumComponent
+    NewAlbumComponent,
+    PhotoUploadComponent
   ]
 })
 export class StageModule {
