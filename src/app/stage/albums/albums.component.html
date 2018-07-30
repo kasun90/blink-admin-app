@@ -36,7 +36,8 @@
         <td mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
           <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
           <mat-menu #menu="matMenu" [overlapTrigger]="false">
-            <button class="menu-button" mat-menu-item>Add Photos</button>
+            <button class="menu-button" mat-menu-item (click)="addPhotos(element.key)">Add Photos</button>
+            <button class="menu-button" mat-menu-item (click)="addCover(element.key)">Add Cover</button>
             <button class="menu-button" mat-menu-item (click)="deleteAlbum(element.key)">Delete</button>
           </mat-menu>
         </td>
@@ -51,4 +52,5 @@
               (page)="pageEvent = $event">
     </mat-paginator>
     <app-new-album [isOpen]="openNewAlbum" [onClose]="onNewAlbumFinished"></app-new-album>
+    <app-edit-album-modal [isOpen]="openEditAlbum" [editType]="editAlbumType" [albumKey]="editAlbumKey" (close)="closeEditing()"></app-edit-album-modal>
 </div>

@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-queue {
+    max-height: 50vh;
+}

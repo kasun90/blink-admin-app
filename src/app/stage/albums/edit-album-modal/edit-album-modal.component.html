@@ -1,0 +1,10 @@
+<div *ngIf="isOpen" class="main-container">
+  <div class="sub-container mat-app-background">
+    <h1>{{title}}</h1>
+    <app-add-photos *ngIf="editType == types.PHOTOS" [albumKey]="albumKey" (complete)="onPhotosUploadComplete()"></app-add-photos>
+    <app-add-cover *ngIf="editType == types.COVER" [albumKey]="albumKey" (complete)="onCoverUploadComplete()"></app-add-cover>
+    <div class="buttons">
+      <button mat-button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</div>

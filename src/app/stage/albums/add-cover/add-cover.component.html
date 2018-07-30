@@ -1,0 +1,9 @@
+<div>
+  <button mat-raised-button (click)="imgFileInput.click()">Select Cover</button>
+    <input hidden type="file" #imgFileInput (change)="onCoverQueued($event)"/>
+    <div class="photo-queue">
+      <ng-container *ngIf="cover !== undefined">
+        <app-photo-upload [file]="cover" [key]="albumKey" [type]="cover" (complete)="onCoverUploadComplete($event)"></app-photo-upload>
+      </ng-container>
+  </div>
+</div>

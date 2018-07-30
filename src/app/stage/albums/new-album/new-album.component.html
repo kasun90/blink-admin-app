@@ -22,13 +22,7 @@
       </mat-step>
       <mat-step [completed]="photosUploadComplete">
         <ng-template matStepLabel>Add Photos</ng-template>
-        <button mat-raised-button (click)="imgFileInput.click()">Select Photos</button>
-        <input hidden type="file" #imgFileInput (change)="onPhotosQueued($event)" multiple/>
-        <div class="photo-queue">
-          <ng-container *ngFor="let photo of photos">
-            <app-photo-upload [file]="photo" [key]="albumKey" (complete)="onPhotoUploadComplete($event)"></app-photo-upload>
-          </ng-container>
-        </div>
+        <app-add-photos [albumKey]="albumKey" (complete)="onPhotosUploadComplete()"></app-add-photos>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button matStepperNext>Next</button>
@@ -36,13 +30,7 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Add Cover</ng-template>
-        <button mat-raised-button (click)="imgFileInput2.click()">Select Cover</button>
-        <input hidden type="file" #imgFileInput2 (change)="onCoverQueued($event)"/>
-        <div class="photo-queue">
-          <ng-container *ngIf="cover !== undefined">
-            <app-photo-upload [file]="cover" [key]="albumKey" [type]="cover" (complete)="onCoverUploadComplete($event)"></app-photo-upload>
-          </ng-container>
-        </div>
+        <app-add-cover [albumKey]="albumKey" (complete)="onCoverUploadComplete()"></app-add-cover>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button (click)="closeModal()" [disabled]="!coverUploadComplete">Finish</button>

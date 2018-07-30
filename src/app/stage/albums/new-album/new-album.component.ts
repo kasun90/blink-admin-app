@@ -18,9 +18,6 @@ export class NewAlbumComponent implements OnInit {
 
   private infoGroup: FormGroup;
   private error: string;
-  private photos: FileList;
-  private cover: File;
-  private uploaded: number;
   private photosUploadComplete = false;
   private coverUploadComplete = false;
 
@@ -44,10 +41,10 @@ export class NewAlbumComponent implements OnInit {
   }
 
   closeModal() {
-    this.photos = undefined;
     this.infoGroup.reset();
-    this.cover = undefined;
     this.isOpen = false;
+    this.coverUploadComplete = false;
+    this.photosUploadComplete = false;
     this.onClose();
   }
 
@@ -68,22 +65,11 @@ export class NewAlbumComponent implements OnInit {
     });
   }
 
-  onPhotosQueued(event) {
-    this.uploaded = 0;
-    this.photos = event.target.files as FileList;
+  onPhotosUploadComplete() {
+    this.photosUploadComplete = true;
   }
 
-  onCoverQueued(event) {
-    const files = event.target.files as FileList;
-    this.cover = files[0];
-  }
-
-  onPhotoUploadComplete(file: File) {
-    this.uploaded++;
-    this.photosUploadComplete = this.photos.length === this.uploaded;
-  }
-
-  onCoverUploadComplete(file: File) {
+  onCoverUploadComplete() {
     this.coverUploadComplete = true;
   }
 }

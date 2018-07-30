@@ -1,3 +1,4 @@
+import { AlbumEdit } from './album-edit.enum';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { MessageService } from './../../message.service';
 import { PageEvent, MatPaginator } from '@angular/material';
@@ -20,6 +21,9 @@ export class AlbumsComponent implements OnInit {
   private pageSizeOptions = [5, 10, 25, 100];
   private pageSize = 5;
   private openNewAlbum: boolean;
+  private openEditAlbum: boolean;
+  private editAlbumType: AlbumEdit;
+  private editAlbumKey: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -83,6 +87,25 @@ export class AlbumsComponent implements OnInit {
         this.resetTable();
       }
     });
+  }
+
+  addPhotos(key: string) {
+    this.editAlbumKey = key;
+    this.editAlbumType = AlbumEdit.PHOTOS;
+    this.openEditAlbum = true;
+  }
+
+  addCover(key: string) {
+    this.editAlbumKey = key;
+    this.editAlbumType = AlbumEdit.COVER;
+    this.openEditAlbum = true;
+  }
+
+  closeEditing() {
+    this.openEditAlbum = false;
+    this.editAlbumType = undefined;
+    this.editAlbumKey = undefined;
+    this.resetTable();
   }
 
 }

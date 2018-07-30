@@ -1,0 +1,9 @@
+<div class="container">
+  <button mat-raised-button (click)="imgFileInput.click()">Select Photos</button>
+    <input hidden type="file" #imgFileInput (change)="onPhotosQueued($event)" multiple/>
+    <div class="photo-queue">
+      <ng-container *ngFor="let photo of photos">
+        <app-photo-upload [file]="photo" [key]="albumKey" (complete)="onPhotoUploadComplete($event)"></app-photo-upload>
+      </ng-container>
+  </div>
+</div>

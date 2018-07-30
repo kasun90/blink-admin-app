@@ -16,6 +16,9 @@ import { NewAlbumComponent } from './albums/new-album/new-album.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { PhotoUploadComponent } from './albums/photo-upload/photo-upload.component';
+import { AddPhotosComponent } from './albums/add-photos/add-photos.component';
+import { AddCoverComponent } from './albums/add-cover/add-cover.component';
+import { EditAlbumModalComponent } from './albums/edit-album-modal/edit-album-modal.component';
 
 @NgModule({
   imports: [
@@ -37,7 +40,10 @@ import { PhotoUploadComponent } from './albums/photo-upload/photo-upload.compone
     AdminUserTypePipe,
     MessageModalComponent,
     NewAlbumComponent,
-    PhotoUploadComponent
+    PhotoUploadComponent,
+    AddPhotosComponent,
+    AddCoverComponent,
+    EditAlbumModalComponent
   ]
 })
 export class StageModule {
