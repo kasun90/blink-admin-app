@@ -1,11 +1,11 @@
-import { File } from '../../File';
+import { BFile } from '../../BFile';
 import { Photo } from '../albums/photo';
 
 export class Preset {
     title: string;
     key: string;
     description: string;
-    templateFile: File;
+    templateFile: BFile;
     beforeImage: Photo;
     afterImage: Photo;
     timestamp: number;

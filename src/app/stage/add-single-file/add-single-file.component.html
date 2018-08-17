@@ -1,0 +1,9 @@
+<div class="container">
+  <button mat-raised-button (click)="imgFileInput.click()">{{taskName}}</button>
+    <input hidden type="file" #imgFileInput (change)="onFileQueued($event)"/>
+    <div class="file-queue">
+      <ng-container *ngIf="file !== undefined">
+        <app-file-upload [file]="file" [message]="message" (complete)="onFileUploadComplete($event)"></app-file-upload>
+      </ng-container>
+  </div>
+</div>

@@ -20,6 +20,9 @@ import { AddPhotosComponent } from './albums/add-photos/add-photos.component';
 import { AddCoverComponent } from './albums/add-cover/add-cover.component';
 import { EditAlbumModalComponent } from './albums/edit-album-modal/edit-album-modal.component';
 import { PresetsComponent } from './presets/presets.component';
+import { NewPresetComponent } from './presets/new-preset/new-preset.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AddSingleFileComponent } from './add-single-file/add-single-file.component';
 
 @NgModule({
   imports: [
@@ -45,7 +48,10 @@ import { PresetsComponent } from './presets/presets.component';
     AddPhotosComponent,
     AddCoverComponent,
     EditAlbumModalComponent,
-    PresetsComponent
+    PresetsComponent,
+    NewPresetComponent,
+    FileUploadComponent,
+    AddSingleFileComponent
   ]
 })
 export class StageModule {

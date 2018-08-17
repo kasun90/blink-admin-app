@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="file-details">
+    <label>{{file.name}}</label>
+  </div>
+  <span></span>
+  <div class="progress-details">
+    <mat-spinner *ngIf="isUploading" [diameter]="30"></mat-spinner>
+    <mat-icon *ngIf="done">done</mat-icon>
+    <mat-icon *ngIf="error">error</mat-icon>
+  </div>
+</div>

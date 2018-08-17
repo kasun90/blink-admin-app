@@ -1,0 +1,38 @@
+<div *ngIf="isOpen" class="main-container">
+  <div class="sub-container mat-app-background">
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step [stepControl]="infoGroup">
+        <form [formGroup]="infoGroup">
+          <ng-template matStepLabel>Check Availability</ng-template>
+          <div class="form">
+            <mat-form-field>
+              <input matInput placeholder="Title" formControlName="title" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Key" formControlName="key" required>
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+            </mat-form-field>
+            
+            <button mat-button matStepperNext (click)="onCreatePresetNext(stepper)">Next</button>
+            <label *ngIf="error">{{error}}</label>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Add Files</ng-template>
+        <app-add-single-file taskName="Select Template" [message]="templateMessage"></app-add-single-file>
+        <app-add-single-file taskName="Select Before Image" [message]="beforePhotoMessage"></app-add-single-file>
+        <app-add-single-file taskName="Select After Image" [message]="afterPhotoMessage"></app-add-single-file>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="closeModal()">Finish</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+    <div class="buttons">
+      <button mat-button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</div>

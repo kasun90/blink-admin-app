@@ -39,4 +39,5 @@
               [pageSizeOptions]="pageSizeOptions"
               (page)="pageEvent = $event">
     </mat-paginator>
+    <app-new-preset [isOpen]="openNewPreset" (close)="closeNewPreset()"></app-new-preset>
 </div>

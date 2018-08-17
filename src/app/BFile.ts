@@ -1,4 +1,4 @@
-export class File {
+export class BFile {
     resource: string;
     url: string;
 
