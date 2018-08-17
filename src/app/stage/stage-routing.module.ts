@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './auth.guard';
+import { PresetsComponent } from './presets/presets.component';
 
 const routes: Routes = [
   {path: 'stage', component: StageComponent,
@@ -15,7 +16,8 @@ const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent},
     {path: 'albums', component: AlbumsComponent},
     {path: 'diagnostics', component: DiagnosticsComponent},
-    {path: 'messages', component: MessagesComponent}
+    {path: 'messages', component: MessagesComponent},
+    {path: 'presets', component: PresetsComponent}
   ]}
 ];
 

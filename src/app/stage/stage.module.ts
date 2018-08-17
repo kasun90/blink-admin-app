@@ -19,6 +19,7 @@ import { PhotoUploadComponent } from './albums/photo-upload/photo-upload.compone
 import { AddPhotosComponent } from './albums/add-photos/add-photos.component';
 import { AddCoverComponent } from './albums/add-cover/add-cover.component';
 import { EditAlbumModalComponent } from './albums/edit-album-modal/edit-album-modal.component';
+import { PresetsComponent } from './presets/presets.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { EditAlbumModalComponent } from './albums/edit-album-modal/edit-album-mo
     PhotoUploadComponent,
     AddPhotosComponent,
     AddCoverComponent,
-    EditAlbumModalComponent
+    EditAlbumModalComponent,
+    PresetsComponent
   ]
 })
 export class StageModule {
