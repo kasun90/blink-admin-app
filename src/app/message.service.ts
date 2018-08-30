@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable, of} from 'rxjs';
 import { catchError, map, timeout} from 'rxjs/operators';
@@ -15,7 +16,7 @@ const httpOptions = {
 
 export class MessageService {
 
-  private adminURL = 'http://localhost:4000/admin';
+  private adminURL = environment.apiURL;
   private targetUser: string;
   private sessionID: string;
 
