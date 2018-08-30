@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class ProfileSideComponent implements OnInit {
 
-  private profilePic: string;
-  private name: string;
-  private type: string;
+  profilePic: string;
+  name: string;
+  type: string;
 
   constructor(private messageService: MessageService, private router: Router) { }
 

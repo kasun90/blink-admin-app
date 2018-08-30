@@ -13,10 +13,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private messageService: MessageService, private router: Router) { }
 
-  private username: string;
-  private password: string;
-  private loginMessage = '';
-  private isSending: boolean;
+  username: string;
+  password: string;
+  loginMessage = '';
+  isSending: boolean;
 
   ngOnInit() {
     this.isSending = false;

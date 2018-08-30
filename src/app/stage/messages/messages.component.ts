@@ -11,12 +11,12 @@ import { PageEvent, MatPaginator, MatRow } from '@angular/material';
 })
 export class MessagesComponent implements OnInit {
 
-  private dataSource: UserMessage[] = [];
-  private columns: string[] = ['name', 'message', 'email', 'phone', 'timestamp'];
-  private total = 0;
-  private pageSizeOptions = [5, 10, 25, 100];
-  private pageSize = 5;
-  private selectedMessage: UserMessage;
+  dataSource: UserMessage[] = [];
+  columns: string[] = ['name', 'message', 'email', 'phone', 'timestamp'];
+  total = 0;
+  pageSizeOptions = [5, 10, 25, 100];
+  pageSize = 5;
+  selectedMessage: UserMessage;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

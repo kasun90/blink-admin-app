@@ -13,9 +13,9 @@ export class FileUploadComponent implements OnInit {
   @Input() message: Message;
   @Output() complete: EventEmitter<File> = new EventEmitter();
 
-  private isUploading: boolean;
-  private done: boolean;
-  private error: boolean;
+  isUploading: boolean;
+  done: boolean;
+  error: boolean;
 
   constructor(private messageService: MessageService) { }
 

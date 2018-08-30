@@ -10,7 +10,7 @@ export class AddPhotosComponent implements OnInit {
   @Input() albumKey: string;
   @Output() complete: EventEmitter<void> = new EventEmitter();
 
-  private photos: FileList;
+  photos: FileList;
   private uploaded: number;
 
   constructor() { }

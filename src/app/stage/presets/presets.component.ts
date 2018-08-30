@@ -12,13 +12,13 @@ import { MatPaginator, PageEvent } from '@angular/material';
 })
 export class PresetsComponent implements OnInit {
 
-  private presetsToolButtons: ToolBarButton[] = [];
-  private displayedColumns: string[] = ['title', 'key', 'description', 'timestamp', 'actions'];
-  private total = 0;
-  private pageSizeOptions = [5, 10, 25, 100];
-  private pageSize = 5;
-  private dataSource: Preset[] = [];
-  private openNewPreset: boolean;
+  presetsToolButtons: ToolBarButton[] = [];
+  displayedColumns: string[] = ['title', 'key', 'description', 'timestamp', 'actions'];
+  total = 0;
+  pageSizeOptions = [5, 10, 25, 100];
+  pageSize = 5;
+  dataSource: Preset[] = [];
+  openNewPreset: boolean;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 

@@ -10,7 +10,7 @@ export class AddCoverComponent implements OnInit {
   @Input() albumKey: string;
   @Output() complete: EventEmitter<void> = new EventEmitter();
 
-  private cover: File;
+  cover: File;
 
   constructor() { }
 

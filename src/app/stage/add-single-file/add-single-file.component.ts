@@ -12,7 +12,7 @@ export class AddSingleFileComponent implements OnInit {
   @Input() message: Message;
   @Output() complete: EventEmitter<void> = new EventEmitter();
 
-  private file: File;
+  file: File;
 
   constructor() { }
 

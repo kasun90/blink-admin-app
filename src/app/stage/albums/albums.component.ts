@@ -14,16 +14,16 @@ import { Message } from '../../message';
 })
 export class AlbumsComponent implements OnInit {
 
-  private albumsToolButtons: ToolBarButton[] = [];
-  private displayedColumns: string[] = ['title', 'key', 'description', 'photos', 'cover', 'timestamp', 'actions'];
-  private dataSource: Album[] = [];
-  private total = 0;
-  private pageSizeOptions = [5, 10, 25, 100];
-  private pageSize = 5;
-  private openNewAlbum: boolean;
-  private openEditAlbum: boolean;
-  private editAlbumType: AlbumEdit;
-  private editAlbumKey: string;
+  albumsToolButtons: ToolBarButton[] = [];
+  displayedColumns: string[] = ['title', 'key', 'description', 'photos', 'cover', 'timestamp', 'actions'];
+  dataSource: Album[] = [];
+  total = 0;
+  pageSizeOptions = [5, 10, 25, 100];
+  pageSize = 5;
+  openNewAlbum: boolean;
+  openEditAlbum: boolean;
+  editAlbumType: AlbumEdit;
+  editAlbumKey: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
