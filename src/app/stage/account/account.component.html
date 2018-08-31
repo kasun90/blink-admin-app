@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Change Password</h3>
+  <mat-divider></mat-divider>
+  <div class="change-password">
+      <mat-form-field>
+          <input type="password" matInput [(ngModel)]="oldPassword" placeholder="Old Password">
+      </mat-form-field>
+      <mat-form-field>
+          <input type="password" matInput [(ngModel)]="newPassword" placeholder="New Password">
+      </mat-form-field>
+      <button mat-flat-button (click)="onChange()">Change</button>
+      <p>{{message}}</p>
+  </div>
+  
+</div>
+

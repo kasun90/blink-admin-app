@@ -23,6 +23,7 @@ import { PresetsComponent } from './presets/presets.component';
 import { NewPresetComponent } from './presets/new-preset/new-preset.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AddSingleFileComponent } from './add-single-file/add-single-file.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { AddSingleFileComponent } from './add-single-file/add-single-file.compon
     PresetsComponent,
     NewPresetComponent,
     FileUploadComponent,
-    AddSingleFileComponent
+    AddSingleFileComponent,
+    AccountComponent
   ]
 })
 export class StageModule {

@@ -7,7 +7,9 @@
         </div>
     </div>
     <div class="button-container">
-        <button mat-button>Change Password</button>
+        <a style="color: inherit" [routerLink]="['account']" routerLinkActive="active">
+            <button mat-button>Account</button>
+        </a>
         <button mat-flat-button (click)="onLogOut()">Logout</button>
     </div>
     <mat-divider></mat-divider>

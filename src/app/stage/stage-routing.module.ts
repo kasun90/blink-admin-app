@@ -7,6 +7,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './auth.guard';
 import { PresetsComponent } from './presets/presets.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   {path: 'stage', component: StageComponent,
@@ -17,7 +18,8 @@ const routes: Routes = [
     {path: 'albums', component: AlbumsComponent},
     {path: 'diagnostics', component: DiagnosticsComponent},
     {path: 'messages', component: MessagesComponent},
-    {path: 'presets', component: PresetsComponent}
+    {path: 'presets', component: PresetsComponent},
+    {path: 'account', component: AccountComponent}
   ]}
 ];
 
