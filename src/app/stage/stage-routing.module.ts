@@ -1,3 +1,4 @@
+import { ArticlesComponent } from './articles/articles.component';
 import { DiagnosticsComponent } from './diagnostics/diagnostics.component';
 import { RouterModule, Routes} from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path: 'diagnostics', component: DiagnosticsComponent},
     {path: 'messages', component: MessagesComponent},
     {path: 'presets', component: PresetsComponent},
-    {path: 'account', component: AccountComponent}
+    {path: 'account', component: AccountComponent},
+    {path: 'articles', component: ArticlesComponent}
   ]}
 ];
 
