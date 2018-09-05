@@ -1,3 +1,4 @@
+import { EditArticleComponent } from './articles/edit-article/edit-article.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { DiagnosticsComponent } from './diagnostics/diagnostics.component';
 import { RouterModule, Routes} from '@angular/router';
@@ -21,7 +22,8 @@ const routes: Routes = [
     {path: 'messages', component: MessagesComponent},
     {path: 'presets', component: PresetsComponent},
     {path: 'account', component: AccountComponent},
-    {path: 'articles', component: ArticlesComponent}
+    {path: 'articles', component: ArticlesComponent},
+    {path: 'articles/edit/:articleKey', component: EditArticleComponent}
   ]}
 ];
 

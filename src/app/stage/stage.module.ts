@@ -26,6 +26,7 @@ import { AddSingleFileComponent } from './add-single-file/add-single-file.compon
 import { AccountComponent } from './account/account.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { NewArticleComponent } from './articles/new-article/new-article.component';
+import { EditArticleComponent } from './articles/edit-article/edit-article.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { NewArticleComponent } from './articles/new-article/new-article.componen
     AddSingleFileComponent,
     AccountComponent,
     ArticlesComponent,
-    NewArticleComponent
+    NewArticleComponent,
+    EditArticleComponent
   ]
 })
 export class StageModule {

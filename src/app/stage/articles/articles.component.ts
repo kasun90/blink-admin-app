@@ -3,6 +3,7 @@ import { Component, OnInit} from '@angular/core';
 import { ToolBarButton } from '../tool-bar-button';
 import { Article } from './Article';
 import { DataTable } from '../common/DataTable';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-articles',
@@ -13,7 +14,7 @@ export class ArticlesComponent extends DataTable<Article> implements OnInit {
 
   openNewArticle: boolean;
 
-  constructor(private _messageService: MessageService) {
+  constructor(private _messageService: MessageService, private router: Router) {
     super(_messageService);
     this.onNewArticle = this.onNewArticle.bind(this);
   }
@@ -38,6 +39,10 @@ export class ArticlesComponent extends DataTable<Article> implements OnInit {
 
   deleteArticle(key: string) {
     this.deleteEntity(key);
+  }
+
+  editArticle(key: string) {
+    this.router.navigate([this.router.url + '/edit', key]);
   }
 
 }

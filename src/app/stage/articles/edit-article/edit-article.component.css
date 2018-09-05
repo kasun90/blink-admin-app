@@ -1,0 +1,25 @@
+.edit-article-container {
+    padding: 1em;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-article-toolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.edit-article-text {
+    width: 100%;
+    resize: none;
+    flex: auto;
+}
+
+button + button {
+    margin-left: 1em;
+}
