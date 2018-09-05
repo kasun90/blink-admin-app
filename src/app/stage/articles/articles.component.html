@@ -45,4 +45,5 @@
               [pageSizeOptions]="pageSizeOptions"
               (page)="pageEvent = $event">
     </mat-paginator>
+    <app-new-article [isOpen]="openNewArticle" (close)="closeNewArticle()"></app-new-article>
 </div>

@@ -16,10 +16,10 @@ export class NewAlbumComponent implements OnInit {
   @Input() onClose?: Function;
   @Input() albumKey?: string;
 
-  private infoGroup: FormGroup;
-  private error: string;
-  private photosUploadComplete = false;
-  private coverUploadComplete = false;
+  infoGroup: FormGroup;
+  error: string;
+  photosUploadComplete = false;
+  coverUploadComplete = false;
 
   constructor(private messageService: MessageService, private formBuilder: FormBuilder) { }
 

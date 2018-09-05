@@ -16,8 +16,8 @@ export class NewPresetComponent implements OnInit {
   @Input() presetKey?: string;
   @Output() close: EventEmitter<void> = new EventEmitter();
 
-  private error: string;
-  private infoGroup: FormGroup;
+  error: string;
+  infoGroup: FormGroup;
   private templateMessage = new Message('com.blink.shared.admin.preset.PresetTemplateUploadMessage');
   private beforePhotoMessage = new Message('com.blink.shared.admin.preset.PresetBeforePhotoUploadMessage');
   private afterPhotoMessage = new Message('com.blink.shared.admin.preset.PresetAfterPhotoUploadMessage');

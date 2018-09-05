@@ -11,6 +11,8 @@ import { DataTable } from '../common/DataTable';
 })
 export class ArticlesComponent extends DataTable<Article> implements OnInit {
 
+  openNewArticle: boolean;
+
   constructor(private _messageService: MessageService) {
     super(_messageService);
     this.onNewArticle = this.onNewArticle.bind(this);
@@ -26,7 +28,16 @@ export class ArticlesComponent extends DataTable<Article> implements OnInit {
   }
 
   onNewArticle() {
+    this.openNewArticle = true;
+  }
 
+  closeNewArticle() {
+    this.openNewArticle = false;
+    this.resetTable();
+  }
+
+  deleteArticle(key: string) {
+    this.deleteEntity(key);
   }
 
 }

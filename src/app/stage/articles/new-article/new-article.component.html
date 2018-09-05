@@ -1,0 +1,21 @@
+<div *ngIf="isOpen" class="main-container">
+  <div class="sub-container mat-app-background">
+    <h2>Create Article</h2>
+    <form [formGroup]="infoGroup">
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Title" formControlName="title" required>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput placeholder="Description" formControlName="description" required></textarea>
+        </mat-form-field>
+        
+        <button mat-button (click)="onCreateArticle()">Create</button>
+        <label *ngIf="error">{{error}}</label>
+      </div>
+    </form>
+    <div class="buttons">
+      <button mat-button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
