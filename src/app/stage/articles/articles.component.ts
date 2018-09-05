@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ToolBarButton } from '../tool-bar-button';
+import { MatPaginator } from '@angular/material';
+import { Article } from './Article';
 
 @Component({
   selector: 'app-articles',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesComponent implements OnInit {
 
-  constructor() { }
+  articleToolButtons: ToolBarButton[] = [];
+  displayedColumns: string[] = ['title', 'key', 'description', 'author', 'timestamp', 'actions'];
+  dataSource: Article[] = [];
+  total = 0;
+  pageSizeOptions = [5, 10, 25, 100];
+  pageSize = 5;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  constructor() {
+    this.onNewArticle = this.onNewArticle.bind(this);
+  }
 
   ngOnInit() {
+    this.articleToolButtons.push(new ToolBarButton('New Article', this.onNewArticle));
+  }
+
+  onNewArticle() {
+
   }
 
 }
