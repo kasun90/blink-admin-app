@@ -1,18 +1,9 @@
 import { Photo } from './photo';
-export class Album {
+import { Entity } from '../common/Entity';
+
+export class Album extends Entity {
     title: string;
-    key: string;
     description: string;
     photos: Photo[];
     cover: Photo;
-    timestamp: number;
-
-    constructor(title: string, key: string, description: string, photos: Photo[], cover: Photo, timestamp: number) {
-        this.title = title;
-        this.key = key;
-        this.description = description;
-        this.photos = photos;
-        this.cover = cover;
-        this.timestamp = timestamp;
-    }
 }

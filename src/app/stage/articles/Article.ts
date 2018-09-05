@@ -1,7 +1,7 @@
-export class Article {
+import { Entity } from '../common/Entity';
+
+export class Article extends Entity {
     title: string;
-    key: string;
     description: string;
     author: string;
-    timestamp: number;
 }

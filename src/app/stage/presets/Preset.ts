@@ -1,12 +1,11 @@
 import { BFile } from '../../BFile';
 import { Photo } from '../albums/photo';
+import { Entity } from '../common/Entity';
 
-export class Preset {
+export class Preset extends Entity {
     title: string;
-    key: string;
     description: string;
     templateFile: BFile;
     beforeImage: Photo;
     afterImage: Photo;
-    timestamp: number;
 }

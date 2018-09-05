@@ -4,15 +4,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToolBarButton } from '../tool-bar-button';
 import { Message } from '../../message';
 import { MatPaginator, PageEvent } from '@angular/material';
+import { DataTable } from '../common/DataTable';
 
 @Component({
   selector: 'app-presets',
   templateUrl: './presets.component.html',
-  styleUrls: ['./presets.component.css']
+  styleUrls: ['./presets.component.css', './../common/DataTable.css']
 })
-export class PresetsComponent implements OnInit {
-
-  presetsToolButtons: ToolBarButton[] = [];
+export class PresetsComponent extends DataTable<Preset> implements OnInit {
   displayedColumns: string[] = ['title', 'key', 'description', 'timestamp', 'actions'];
   total = 0;
   pageSizeOptions = [5, 10, 25, 100];
@@ -22,24 +21,17 @@ export class PresetsComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private messageService: MessageService) {
+  constructor(private _messageService: MessageService) {
+    super(_messageService);
     this.onNewPreset = this.onNewPreset.bind(this);
   }
 
   ngOnInit() {
-    this.presetsToolButtons.push(new ToolBarButton('New Preset', this.onNewPreset));
-    this.requestData(0, true, this.pageSize);
-  }
-
-  set pageEvent(event: PageEvent) {
-    if (this.pageSize !== event.pageSize) {
-      this.pageSize = event.pageSize;
-      this.resetTable();
-    } else if (event.previousPageIndex < event.pageIndex) {
-      this.requestData(this.dataSource[this.dataSource.length - 1].timestamp, true, this.pageSize);
-    } else {
-      this.requestData(this.dataSource[0].timestamp, false, this.pageSize);
-    }
+    this.toolBarButtons.push(new ToolBarButton('New Preset', this.onNewPreset));
+    this.requestMessageType = 'com.blink.shared.admin.preset.PresetsRequestMessage';
+    this.dataArrayName = 'presets';
+    this.deleteMessageType = 'com.blink.shared.admin.preset.PresetDeleteMessage';
+    this.init();
   }
 
   onNewPreset() {
@@ -52,33 +44,6 @@ export class PresetsComponent implements OnInit {
   }
 
   deletePreset(key: string) {
-    const req: Message = new Message('com.blink.shared.admin.preset.PresetDeleteMessage');
-    req.set('key', key);
-
-    this.messageService.send(req).subscribe(result => {
-      if (result.isOK()) {
-        this.resetTable();
-      }
-    });
+    this.deleteEntity(key);
   }
-
-  private resetTable() {
-    this.paginator.pageIndex = 0;
-    this.requestData(0, true, this.pageSize);
-  }
-
-  private requestData(timestamp: number, less: boolean, limit: number) {
-    const req: Message = new Message('com.blink.shared.admin.preset.PresetsRequestMessage');
-    req.set('timestamp', timestamp);
-    req.set('less', less);
-    req.set('limit', limit);
-
-    this.messageService.send(req).subscribe(result => {
-      if (result.isOK()) {
-        this.dataSource = result.get('presets') as Array<Preset>;
-        this.total = result.get('total');
-      }
-    });
-  }
-
 }
