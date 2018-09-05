@@ -3,9 +3,10 @@
   <div class="edit-article-toolbar">
       <button mat-button>Insert Image</button>
   </div>
-  <textarea class="edit-article-text"></textarea>
+  <textarea matInput [(ngModel)]="rawArticle" class="edit-article-text"></textarea>
+  <label>{{message}}</label>
   <div class="edit-article-toolbar">
       <button mat-button (click)="cancel()">Cancel</button>
-      <button mat-flat-button>Save</button>
+      <button mat-flat-button [disabled]="updating" (click)="update()">Save</button>
   </div>
 </div>
