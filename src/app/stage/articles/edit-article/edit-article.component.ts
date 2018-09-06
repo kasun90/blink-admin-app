@@ -58,6 +58,7 @@ export class EditArticleComponent implements OnInit {
           this.message = result.get('description');
         }
       } else {
+        this.message = 'Network error while saving';
       }
     });
   }
