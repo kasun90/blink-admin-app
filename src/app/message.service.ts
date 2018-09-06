@@ -21,6 +21,10 @@ export class MessageService {
   private sessionID: string;
 
   constructor(private httpClient: HttpClient) {
+    if (environment.production) {
+      this.adminURL = window.location.origin + '/admin';
+    }
+
     const _recoverSession = localStorage.getItem('sessionID');
     if (_recoverSession !== undefined && _recoverSession !== 'null' && _recoverSession !== null) {
       this.setSessionID(localStorage.getItem('sessionID'));
