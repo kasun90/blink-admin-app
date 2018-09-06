@@ -43,6 +43,7 @@ export class EditArticleComponent implements OnInit {
   }
 
   update() {
+    this.message = 'Saving...';
     this.updating = true;
     const updateReq = new Message('com.blink.shared.admin.article.UpdateArticleRequestMessage');
     updateReq.set('key', this.articleKey);
@@ -51,7 +52,11 @@ export class EditArticleComponent implements OnInit {
     this.messageService.send(updateReq).subscribe(result => {
       this.updating = false;
       if (result.isOK()) {
-
+        if (result.get('success')) {
+          this.message = 'Saved successfully';
+        } else {
+          this.message = result.get('description');
+        }
       } else {
       }
     });
