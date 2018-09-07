@@ -42,7 +42,7 @@ export class MessageService {
     params.append('targetUser', this.targetUser);
     params.append('message', message.toJSON());
     return this.httpClient.post(this.adminURL, params.toString(), httpOptions)
-    .pipe(catchError(this.handleError()), timeout(10000), map((result, number): Message => {
+    .pipe(catchError(this.handleError()), map((result, number): Message => {
       if (result instanceof Message) {
         return result;
       }
