@@ -18,9 +18,9 @@ export class NewPresetComponent implements OnInit {
 
   error: string;
   infoGroup: FormGroup;
-  private templateMessage = new Message('com.blink.shared.admin.preset.PresetTemplateUploadMessage');
-  private beforePhotoMessage = new Message('com.blink.shared.admin.preset.PresetBeforePhotoUploadMessage');
-  private afterPhotoMessage = new Message('com.blink.shared.admin.preset.PresetAfterPhotoUploadMessage');
+  templateMessage = new Message('com.blink.shared.admin.preset.PresetTemplateUploadMessage');
+  beforePhotoMessage = new Message('com.blink.shared.admin.preset.PresetBeforePhotoUploadMessage');
+  afterPhotoMessage = new Message('com.blink.shared.admin.preset.PresetAfterPhotoUploadMessage');
 
   constructor(private messageService: MessageService, private formBuilder: FormBuilder) { }
 

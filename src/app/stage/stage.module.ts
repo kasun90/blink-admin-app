@@ -27,6 +27,7 @@ import { AccountComponent } from './account/account.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { NewArticleComponent } from './articles/new-article/new-article.component';
 import { EditArticleComponent } from './articles/edit-article/edit-article.component';
+import { ArticleImageComponent } from './articles/article-image/article-image.component';
 
 @NgModule({
   imports: [
@@ -59,7 +60,8 @@ import { EditArticleComponent } from './articles/edit-article/edit-article.compo
     AccountComponent,
     ArticlesComponent,
     NewArticleComponent,
-    EditArticleComponent
+    EditArticleComponent,
+    ArticleImageComponent
   ]
 })
 export class StageModule {
