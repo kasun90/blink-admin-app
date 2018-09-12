@@ -1,3 +1,4 @@
+import { BFile } from './../../BFile';
 import { MessageService } from './../../message.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Message } from '../../message';
@@ -11,7 +12,7 @@ export class FileUploadComponent implements OnInit {
 
   @Input() file: File;
   @Input() message: Message;
-  @Output() complete: EventEmitter<File> = new EventEmitter();
+  @Output() complete: EventEmitter<BFile> = new EventEmitter();
 
   isUploading: boolean;
   done: boolean;
@@ -31,7 +32,11 @@ export class FileUploadComponent implements OnInit {
         this.isUploading = false;
         if (response.isOK()) {
           this.done = true;
-          this.complete.emit(this.file);
+          if (response.getType() === 'com.blink.shared.admin.FileUploadResponseMessage') {
+            this.complete.emit(response.get('file') as BFile);
+          } else {
+            this.complete.emit(new BFile(this.file.name, this.file.name));
+          }
         } else {
           this.error = true;
         }

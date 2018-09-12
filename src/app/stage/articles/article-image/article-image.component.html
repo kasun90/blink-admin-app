@@ -1,11 +1,11 @@
 <div *ngIf="isOpen" class="main-container">
   <div class="sub-container mat-app-background">
     <h2>Insert Image</h2>
-    <app-add-single-file taskName="Select Image" [message]="imageUploadMessage"></app-add-single-file>
+    <app-add-single-file taskName="Select Image" [message]="imageUploadMessage" (complete)="onUploadFinished($event)"></app-add-single-file>
     <label>{{message}}</label>
     <div class="buttons">
-      <button mat-button (click)="closeModal()">Copy Tag</button>
-      <button mat-button (click)="closeModal()">Insert Tag</button>
+      <button mat-button (click)="copyTag()">Copy Tag</button>
+      <button mat-button (click)="insertTag()">Insert Tag</button>
       <button mat-button (click)="closeModal()">Close</button>
     </div>
   </div>

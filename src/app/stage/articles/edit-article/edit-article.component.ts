@@ -51,6 +51,10 @@ export class EditArticleComponent implements OnInit {
     this.openInsertImage = false;
   }
 
+  onImage(tag: string) {
+    this.rawArticle = this.rawArticle + tag;
+  }
+
   update() {
     this.message = 'Saving...';
     this.updating = true;

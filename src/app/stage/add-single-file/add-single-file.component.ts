@@ -1,3 +1,4 @@
+import { BFile } from './../../BFile';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
@@ -10,7 +11,7 @@ export class AddSingleFileComponent implements OnInit {
 
   @Input() taskName = 'Select File';
   @Input() message: Message;
-  @Output() complete: EventEmitter<void> = new EventEmitter();
+  @Output() complete: EventEmitter<BFile> = new EventEmitter();
 
   file: File;
 
@@ -24,8 +25,8 @@ export class AddSingleFileComponent implements OnInit {
     this.file = files[0];
   }
 
-  onFileUploadComplete(file: File) {
-    this.complete.emit();
+  onFileUploadComplete(file: BFile) {
+    this.complete.emit(file);
   }
 
 }

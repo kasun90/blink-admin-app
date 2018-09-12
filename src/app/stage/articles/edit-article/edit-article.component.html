@@ -9,5 +9,5 @@
       <button mat-button (click)="cancel()">Close</button>
       <button mat-flat-button [disabled]="updating" (click)="update()">Save</button>
   </div>
-  <app-article-image [isOpen]="openInsertImage" [key]="articleKey" (close)="closeInsertImage()"></app-article-image>
+  <app-article-image [isOpen]="openInsertImage" [key]="articleKey" (close)="closeInsertImage()" (image)="onImage($event)"></app-article-image>
 </div>
