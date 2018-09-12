@@ -28,6 +28,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { NewArticleComponent } from './articles/new-article/new-article.component';
 import { EditArticleComponent } from './articles/edit-article/edit-article.component';
 import { ArticleImageComponent } from './articles/article-image/article-image.component';
+import { ArticleCoverComponent } from './articles/article-cover/article-cover.component';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import { ArticleImageComponent } from './articles/article-image/article-image.co
     ArticlesComponent,
     NewArticleComponent,
     EditArticleComponent,
-    ArticleImageComponent
+    ArticleImageComponent,
+    ArticleCoverComponent
   ]
 })
 export class StageModule {

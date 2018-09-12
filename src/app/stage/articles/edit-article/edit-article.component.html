@@ -2,6 +2,7 @@
   <h2>Edit Article</h2>
   <div class="edit-article-toolbar">
       <button mat-button (click)="onInsertImage()">Insert Image</button>
+      <button mat-button (click)="onInsertCover()">Insert Cover</button>
   </div>
   <textarea [(ngModel)]="rawArticle" class="edit-article-text"></textarea>
   <label>{{message}}</label>
@@ -10,4 +11,5 @@
       <button mat-flat-button [disabled]="updating" (click)="update()">Save</button>
   </div>
   <app-article-image [isOpen]="openInsertImage" [key]="articleKey" (close)="closeInsertImage()" (image)="onImage($event)"></app-article-image>
+  <app-article-cover [isOpen]="openInsertCover" [key]="articleKey" (close)="closeInsertCover()"></app-article-cover>
 </div>

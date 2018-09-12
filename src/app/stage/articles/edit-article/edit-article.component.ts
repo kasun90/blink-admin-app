@@ -16,6 +16,7 @@ export class EditArticleComponent implements OnInit {
   updating: boolean;
   message: string;
   openInsertImage: boolean;
+  openInsertCover: boolean;
 
   constructor(private route: ActivatedRoute, private location: Location,
     private messageService: MessageService) { }
@@ -41,6 +42,14 @@ export class EditArticleComponent implements OnInit {
 
   cancel() {
     this.location.back();
+  }
+
+  onInsertCover() {
+    this.openInsertCover = true;
+  }
+
+  closeInsertCover() {
+    this.openInsertCover = false;
   }
 
   onInsertImage() {

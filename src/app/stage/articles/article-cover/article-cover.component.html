@@ -1,0 +1,9 @@
+<div *ngIf="isOpen" class="main-container">
+  <div class="sub-container mat-app-background">
+    <h2>Insert Cover</h2>
+    <app-add-single-file taskName="Select Cover" [message]="coverUploadMessage" (complete)="onUploadFinished($event)"></app-add-single-file>
+    <div class="buttons">
+      <button mat-button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
