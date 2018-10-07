@@ -16,22 +16,27 @@ export class NewArticleComponent implements OnInit {
 
   infoGroup: FormGroup;
   error: string;
-  key: string;
 
-  constructor(private messageService: MessageService, private formBuilder: FormBuilder) { }
+  constructor(private messageService: MessageService, private formBuilder: FormBuilder) {
+    this.checkForKey = this.checkForKey.bind(this);
+  }
 
   ngOnInit() {
     this.error = '';
     this.infoGroup = this.formBuilder.group({
-      title : ['', Validators.required, this.checkForKey.bind(this)],
+      title : ['', Validators.required],
+      key : ['', Validators.required, this.checkForKey],
       description : ['', Validators.required]
+    });
+
+    this.infoGroup.get('title').valueChanges.subscribe(val => {
+      this.infoGroup.patchValue({'key': this.getKey(val)});
     });
   }
 
   checkForKey(control: AbstractControl) {
     const keyMsg = new Message('com.blink.shared.admin.article.ArticleKeyCheckRequestMessage');
-    this.key = this.getKey(control.value);
-    keyMsg.set('key', this.key);
+    keyMsg.set('key', control.value);
     return this.messageService.send(keyMsg).pipe(map(result => {
       return result.isOK() && result.get('available') ? null : {available: false};
     }));
@@ -41,7 +46,7 @@ export class NewArticleComponent implements OnInit {
     this.error = '';
     if (this.infoGroup.valid) {
       const req = new Message('com.blink.shared.admin.article.CreateArticleRequestMessage');
-      req.set('key', this.key);
+      req.set('key', this.infoGroup.get('key').value);
       req.set('title', this.infoGroup.get('title').value);
       req.set('description', this.infoGroup.get('description').value);
 
