@@ -8,9 +8,16 @@
       <mat-form-field>
           <input type="password" matInput [(ngModel)]="newPassword" placeholder="New Password">
       </mat-form-field>
-      <button mat-flat-button (click)="onChange()">Change</button>
+      <button mat-flat-button (click)="onPasswordChange()">Change</button>
       <p>{{message}}</p>
   </div>
-  
+  <h3>Change Name</h3>
+  <mat-divider></mat-divider>
+  <div class="change-name">
+      <mat-form-field>
+          <input matInput [(ngModel)]="name" placeholder="Name">
+      </mat-form-field>
+      <button mat-flat-button (click)="onNameChange()">Change</button>
+  </div>
 </div>
 

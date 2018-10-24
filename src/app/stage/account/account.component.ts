@@ -12,15 +12,23 @@ export class AccountComponent implements OnInit {
 
   oldPassword: string;
   newPassword: string;
+  name: string;
   message: string;
 
   constructor(private messageService: MessageService) { }
 
   ngOnInit() {
     this.message = '';
+
+    const request = new Message('com.blink.shared.admin.portal.UserDetailsRequestMessage');
+    this.messageService.send(request).subscribe(result => {
+      if (result.isOK()) {
+        this.name = result.get('name');
+      }
+    });
   }
 
-  onChange() {
+  onPasswordChange() {
     this.message = '';
     if (this.oldPassword === undefined || this.newPassword === undefined) {
       this.message = 'Passwords are empty';
@@ -38,6 +46,23 @@ export class AccountComponent implements OnInit {
         this.message = 'Connection error';
       }
     });
+  }
+
+  onNameChange() {
+    if (this.name === undefined || this.name === '') {
+      alert('Name cannot be empty');
+      return;
+    }
+
+    const req = new Message('com.blink.shared.admin.portal.ChangeNameMessage');
+    req.set('newName', this.name);
+
+    this.messageService.send(req).subscribe(result => {
+      if (result.isOK()) {
+        alert('Name changed');
+      }
+    });
+
   }
 
 }
