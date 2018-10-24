@@ -4,4 +4,5 @@ export class Article extends Entity {
     title: string;
     description: string;
     author: string;
+    active: boolean;
 }
