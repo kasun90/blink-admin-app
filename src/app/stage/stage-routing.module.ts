@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './auth.guard';
 import { PresetsComponent } from './presets/presets.component';
 import { AccountComponent } from './account/account.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {path: 'stage', component: StageComponent,
@@ -23,7 +24,8 @@ const routes: Routes = [
     {path: 'presets', component: PresetsComponent},
     {path: 'account', component: AccountComponent},
     {path: 'articles', component: ArticlesComponent},
-    {path: 'articles/edit/:articleKey', component: EditArticleComponent}
+    {path: 'articles/edit/:articleKey', component: EditArticleComponent},
+    {path: 'settings', component: SettingsComponent}
   ]}
 ];
 

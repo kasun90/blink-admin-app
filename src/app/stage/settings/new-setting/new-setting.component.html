@@ -1,0 +1,21 @@
+<div *ngIf="isOpen" class="main-container">
+  <div class="sub-container mat-app-background">
+    <h2>{{title}} Setting</h2>
+    <form [formGroup]="infoGroup">
+        <div class="form">
+          <mat-form-field>
+              <input matInput placeholder="Key" formControlName="key" required>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="Value" formControlName="value" required>
+          </mat-form-field>
+    
+          <div class="buttons">
+              <button mat-button (click)="save()">Save</button>
+              <button mat-button (click)="closeModal()">Close</button>
+          </div>
+          <label *ngIf="error">{{error}}</label>
+        </div>
+    </form>
+  </div>
+</div>
