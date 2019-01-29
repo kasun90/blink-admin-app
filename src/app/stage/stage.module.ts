@@ -31,6 +31,7 @@ import { ArticleImageComponent } from './articles/article-image/article-image.co
 import { ArticleCoverComponent } from './articles/article-cover/article-cover.component';
 import { SettingsComponent } from './settings/settings.component';
 import { NewSettingComponent } from './settings/new-setting/new-setting.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 
 @NgModule({
   imports: [
@@ -67,7 +68,8 @@ import { NewSettingComponent } from './settings/new-setting/new-setting.componen
     ArticleImageComponent,
     ArticleCoverComponent,
     SettingsComponent,
-    NewSettingComponent
+    NewSettingComponent,
+    SubscriptionsComponent
   ]
 })
 export class StageModule {

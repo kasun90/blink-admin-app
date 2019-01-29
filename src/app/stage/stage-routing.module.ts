@@ -11,6 +11,7 @@ import { AuthGuard } from './auth.guard';
 import { PresetsComponent } from './presets/presets.component';
 import { AccountComponent } from './account/account.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 
 const routes: Routes = [
   {path: 'stage', component: StageComponent,
@@ -25,7 +26,8 @@ const routes: Routes = [
     {path: 'account', component: AccountComponent},
     {path: 'articles', component: ArticlesComponent},
     {path: 'articles/edit/:articleKey', component: EditArticleComponent},
-    {path: 'settings', component: SettingsComponent}
+    {path: 'settings', component: SettingsComponent},
+    {path: 'subscriptions', component: SubscriptionsComponent}
   ]}
 ];
 
