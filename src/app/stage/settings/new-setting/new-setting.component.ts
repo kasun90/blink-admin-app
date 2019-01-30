@@ -43,6 +43,7 @@ export class NewSettingComponent implements OnInit, OnChanges {
       this.infoGroup.get('key').disable();
     } else {
       this.title = 'Insert';
+      this.infoGroup.get('key').enable();
     }
   }
 
